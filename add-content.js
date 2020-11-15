@@ -1,3 +1,3 @@
 export default function() {
-  document.write('Hello World!')
+  document.write('I\'m using npm scripts!')
 }
