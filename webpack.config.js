@@ -2,11 +2,11 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    bundle: './src/index.js',
+    bundle: './src/index.js'
   },
   output: {
     // filename: '[name]@[chunkhash].js',
-    filename: '[name].js',
+    filename: '[name].js'
     // path: path.join(__dirname, 'dist') // webpack4 默认输出目录为dist
   },
   mode: 'development',
@@ -26,7 +26,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-             cacheDirectory: true
+            cacheDirectory: true
           }
         }
       }
