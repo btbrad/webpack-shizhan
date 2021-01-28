@@ -1,18 +1,27 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
     bundle: './src/index.js'
   },
   output: {
-    // filename: '[name]@[chunkhash].js',
     filename: '[name].js'
     // path: path.join(__dirname, 'dist') // webpack4 默认输出目录为dist
   },
   mode: 'development',
   devServer: {
-    publicPath: '/dist'
+    // contentBase: path.join(__dirname, 'dist'), // 静态内容
+    publicPath: '/',
+    compress: true,
+    port: 9000,
+    open: true
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
   },
   module: {
     rules: [
@@ -25,7 +34,9 @@ module.exports = {
               publicPath: '../'
             }
           },
-          'css-loader'],
+          {
+            loader: 'css-loader'
+          }],
         exclude: /node_modules/
       },
       {
@@ -50,6 +61,7 @@ module.exports = {
         filename: '[name].css',
         chunkFilename: '[id].css'
       }
-    )
+    ),
+    new HtmlWebpackPlugin()
   ]
 }

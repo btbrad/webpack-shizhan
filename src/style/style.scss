@@ -1,0 +1,11 @@
+$primary-color: #09c;
+
+body {
+    background: $primary-color;
+    .container {
+        display: grid;
+        .title {
+            color: $primary-color;
+        }
+    }
+}
